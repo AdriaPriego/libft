@@ -6,7 +6,7 @@
 /*   By: apriego- <apriego-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 14:29:07 by apriego-          #+#    #+#             */
-/*   Updated: 2023/05/02 14:32:04 by apriego-         ###   ########.fr       */
+/*   Updated: 2023/05/02 18:57:55 by apriego-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	ft_isdigit(int c)
 
 int	ft_isalnum(int c)
 {
-	if (ft_isdigit(c) && ft_isalpha(c))
+	if (ft_isdigit(c) || ft_isalpha(c))
 		return (1);
 	return (0);
 }

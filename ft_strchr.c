@@ -6,7 +6,7 @@
 /*   By: apriego- <apriego-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 15:17:24 by apriego-          #+#    #+#             */
-/*   Updated: 2023/05/02 15:23:29 by apriego-         ###   ########.fr       */
+/*   Updated: 2023/05/02 19:03:52 by apriego-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,16 @@ char	*ft_strchr(char *s, int c)
 	}
 	if (s[i] == c)
 		return (&s[i]);
-	return (s);
+	return (0);
 }
-
 /*
 #include <string.h>
 #include <stdio.h>
 
 int main(void)
 {
-	char str[] = "Hola como estas";
-	char c = 'c';
+	char str[] = "teste";
+	char c = 'a';
 	printf("%s", ft_strchr(str,c));
 	printf("%s", strchr(str,c));
-}
-*/
+}*/

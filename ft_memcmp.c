@@ -6,18 +6,18 @@
 /*   By: apriego- <apriego-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 17:23:26 by apriego-          #+#    #+#             */
-/*   Updated: 2023/05/02 17:32:23 by apriego-         ###   ########.fr       */
+/*   Updated: 2023/05/02 19:25:23 by apriego-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_memcmp(const void *buffer1, const void *buffer2, int count)
 {
-	int		i;
-	char	*s1;
-	char	*s2;
+	int				i;
+	unsigned char	*s1;
+	unsigned char	*s2;
 
-	s1 = (char *) buffer1;
-	s2 = (char *) buffer2;
+	s1 = (unsigned char *) buffer1;
+	s2 = (unsigned char *) buffer2;
 	i = 0;
 	while ((s1[i] != '\0' || s2[i] != '\0') && i < count)
 	{
