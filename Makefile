@@ -6,7 +6,7 @@
 #    By: apriego- <apriego-@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/02 13:15:19 by apriego-          #+#    #+#              #
-#    Updated: 2023/05/02 18:53:03 by apriego-         ###   ########.fr        #
+#    Updated: 2023/05/03 11:46:56 by apriego-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,11 @@ SRC =	ft_memset.c \
 		ft_isascii.c \
 		ft_isprint.c \
 		ft_toupper.c \
-		ft_tolower.c
+		ft_tolower.c \
+		ft_atoi.c \
+		ft_strnstr.c \
+		ft_strlcat.c \
+		ft_strlcpy.c
 OBJ = 	$(SRC:%.c=%.o)
 INCLUDE = libft.h
 

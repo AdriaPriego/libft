@@ -6,38 +6,31 @@
 /*   By: apriego- <apriego-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 22:51:52 by apriego-          #+#    #+#             */
-/*   Updated: 2023/05/02 22:51:52 by apriego-         ###   ########.fr       */
+/*   Updated: 2023/05/03 12:44:58 by apriego-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(const char *s)
+#include "libft.h"
+
+size_t	ft_strlcat(char *dest, char *src, size_t size)
 {
-	int	i;
+	size_t	dlen;
+	size_t	slen;
+	size_t	i;
 
 	i = 0;
-	while (s[i] != '\0')
+	dlen = 0;
+	slen = 0;
+	while (dest[dlen] != '\0' && dlen < size)
+		dlen++;
+	while (src[slen] != '\0')
+		slen++;
+	while (src[i] != '\0' && i < size - dlen - 1 && dlen < size)
+	{
+		dest[dlen + i] = src[i];
 		i++;
-	return (i);
-}
-
-int	ft_strlcat(char *dst, const char *src, int dstsize)
-{
-	int	ldst;
-	int	lsrc;
-	int	cont;
-    int i;
-
-    i = 0;
-	ldst = ft_strlen(dst);
-	lsrc = ft_strlen(src);
-	if (dstsize <= ldst)
-		return (lsrc + dstsize);
-	cont = ldst;
-	while (src[i] != '\0' && cont < (dstsize - 1))
-    {
-        dst[cont] = src[i];
-        i++;
-    }
-	dst[cont] = '\0';
-	return (ldst + lsrc);
+	}
+	if (i > 0)
+		dest[dlen + i] = '\0';
+	return (dlen + slen);
 }

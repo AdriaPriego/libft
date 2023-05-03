@@ -6,20 +6,22 @@
 /*   By: apriego- <apriego-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 17:23:26 by apriego-          #+#    #+#             */
-/*   Updated: 2023/05/02 19:25:23 by apriego-         ###   ########.fr       */
+/*   Updated: 2023/05/03 14:49:41 by apriego-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_memcmp(const void *buffer1, const void *buffer2, int count)
+#include "libft.h"
+
+int	ft_memcmp(const void *buffer1, const void *buffer2, size_t count)
 {
-	int				i;
+	size_t			i;
 	unsigned char	*s1;
 	unsigned char	*s2;
 
 	s1 = (unsigned char *) buffer1;
 	s2 = (unsigned char *) buffer2;
 	i = 0;
-	while ((s1[i] != '\0' || s2[i] != '\0') && i < count)
+	while (i < count)
 	{
 		if (s1[i] != s2[i])
 			return (s1[i] - s2[i]);

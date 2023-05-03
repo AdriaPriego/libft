@@ -6,7 +6,7 @@
 /*   By: apriego- <apriego-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 17:00:20 by apriego-          #+#    #+#             */
-/*   Updated: 2023/05/02 17:10:39 by apriego-         ###   ########.fr       */
+/*   Updated: 2023/05/03 14:45:37 by apriego-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ void	*ft_memchr(const void *str, int c, int n)
 
 	s = (char *) str;
 	i = 0;
-	while (s[i] != '\0' && i < n)
+	while (i < n)
 	{
-		if (s[i] == c)
+		if (s[i] == (char)c)
 			return (&s[i]);
 		i++;
 	}

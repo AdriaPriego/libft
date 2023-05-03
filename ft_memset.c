@@ -6,18 +6,20 @@
 /*   By: apriego- <apriego-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 16:17:55 by apriego-          #+#    #+#             */
-/*   Updated: 2023/05/02 16:57:38 by apriego-         ###   ########.fr       */
+/*   Updated: 2023/05/03 13:11:32 by apriego-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memset(void *b, int c, int len)
+#include "libft.h"
+
+void	*ft_memset(void *b, int c, size_t len)
 {
-	int		i;
-	char	*str;
+	size_t			i;
+	unsigned char	*str;
 
 	i = 0;
-	str = (char *) b;
-	while (str[i] != '\0' && i < len)
+	str = (unsigned char *) b;
+	while (i < len)
 	{
 		str[i] = c;
 		i++;
@@ -31,13 +33,9 @@ void	*ft_memset(void *b, int c, int len)
 
 int main(void)
 {
-	char str[] = "Hola como estas";
-	char str1[] = "Hola como estas";
-	char c = 'c';
-
-	ft_memset(str,c,3);
-	memset(str1,c,3);
-	printf("%s\n", str);
-	printf("%s", str1);
+	char tab[100];
+	memset(tab, 0, 100);
+	ft_memset(tab, 'A', 0);
+	printf("%c\n", tab[0]);
 }
 */

@@ -6,7 +6,7 @@
 /*   By: apriego- <apriego-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 17:11:52 by apriego-          #+#    #+#             */
-/*   Updated: 2023/05/02 17:22:44 by apriego-         ###   ########.fr       */
+/*   Updated: 2023/05/03 15:07:06 by apriego-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,24 +26,13 @@ void	*ft_memcpy(void *dest, const void *src, int count)
 	}
 	return (str);
 }
-/*
+
 #include <stdio.h>
 #include <string.h>
 
-int main () {
-   const char src[50] = "http://www.tutorialspoint.com";
-   char dest[50] = "Hel!!";
-
-   printf("Before memcpy dest = %s\n", dest);
-   memcpy(dest, src, strlen(src)+1);
-   printf("After memcpy dest = %s\n", dest);
-   
-   const char src1[50] = "http://www.tutorialspoint.com";
-   char dest1[50] = "Hel!!";
-
-   printf("Before memcpy dest = %s\n", dest1);
-   memcpy(dest1, src1, strlen(src1)+1);
-   printf("After memcpy dest = %s\n", dest1);
+int main () 
+{
+   printf("%s\n", memcpy(((void *)0), ((void *)0), 3));
+   printf("%s", ft_memcpy(((void *)0), ((void *)0), 3));
    return(0);
 }
-*/

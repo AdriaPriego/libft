@@ -6,20 +6,13 @@
 /*   By: apriego- <apriego-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 13:47:24 by apriego-          #+#    #+#             */
-/*   Updated: 2023/05/02 14:19:39 by apriego-         ###   ########.fr       */
+/*   Updated: 2023/05/03 11:50:34 by apriego-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_islower(int c)
-{
-	if (c >= 'a' && c <= 'z')
-		return (1);
-	return (0);
-}
-
 int	ft_toupper(int c)
 {
-	if (ft_islower(c) == 1)
+	if (c >= 'a' && c <= 'z')
 		return (c - 32);
 	return (c);
 }

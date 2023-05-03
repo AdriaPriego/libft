@@ -6,13 +6,15 @@
 /*   By: apriego- <apriego-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 15:30:53 by apriego-          #+#    #+#             */
-/*   Updated: 2023/05/02 19:22:04 by apriego-         ###   ########.fr       */
+/*   Updated: 2023/05/03 14:36:17 by apriego-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(const char *s1, const char *s2, int n)
+#include "libft.h"
+
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	int				i;
+	size_t			i;
 	unsigned char	*str;
 	unsigned char	*str1;
 

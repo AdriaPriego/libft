@@ -6,7 +6,7 @@
 /*   By: apriego- <apriego-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 16:53:48 by apriego-          #+#    #+#             */
-/*   Updated: 2023/05/02 16:57:19 by apriego-         ###   ########.fr       */
+/*   Updated: 2023/05/03 13:20:14 by apriego-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	*ft_bzero(void *s, int n)
 
 	i = 0;
 	str = (char *) s;
-	while (str[i] != '\0' && i < n)
+	while (i < n)
 	{
 		str[i] = 0;
 		i++;
@@ -31,12 +31,11 @@ void	*ft_bzero(void *s, int n)
 
 int main(void)
 {
-	char str[] = "Hola como estas";
-	char str1[] = "Hola como estas";
-	char c = 'c';
-
-	ft_bzero(str,3);
-	bzero(str1,3);
+	char tab[100];
+	
+	memset(tab, 'A', 100); tab[0] = 0;
+	ft_bzero(tab,42);
+	bzero(tab,42);
 	printf("%s\n", str);
 	printf("%s", str1);
 }*/
