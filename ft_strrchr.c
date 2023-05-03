@@ -6,7 +6,7 @@
 /*   By: apriego- <apriego-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 14:50:23 by apriego-          #+#    #+#             */
-/*   Updated: 2023/05/03 14:32:27 by apriego-         ###   ########.fr       */
+/*   Updated: 2023/05/03 15:35:35 by apriego-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,10 @@ char	*ft_strrchr(const char *s, int c)
 			return ((char *)&s[i]);
 		i--;
 	}
-	if (s[i] == c)
-		return ((char *)&s[i]);
 	return (0);
 }
 /*
+
 #include <string.h>
 #include <stdio.h>
 

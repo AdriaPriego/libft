@@ -6,13 +6,15 @@
 /*   By: apriego- <apriego-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 17:00:20 by apriego-          #+#    #+#             */
-/*   Updated: 2023/05/03 14:45:37 by apriego-         ###   ########.fr       */
+/*   Updated: 2023/05/03 15:55:05 by apriego-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memchr(const void *str, int c, int n)
+#include "libft.h"
+
+void	*ft_memchr(const void *str, int c, size_t n)
 {
-	int		i;
+	size_t	i;
 	char	*s;
 
 	s = (char *) str;

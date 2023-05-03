@@ -6,31 +6,33 @@
 /*   By: apriego- <apriego-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 17:33:01 by apriego-          #+#    #+#             */
-/*   Updated: 2023/05/02 19:44:41 by apriego-         ###   ########.fr       */
+/*   Updated: 2023/05/03 15:50:08 by apriego-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memmove(void *dest, const void *src, int count)
-{
-	int	idx;
+#include "libft.h"
 
-	if (dest == src || !count)
+void	*ft_memmove(void *dest, const void *src, size_t len)
+{
+	size_t	i;
+
+	if (dest == src || !len)
 		return (dest);
-	idx = 0;
+	i = 0;
 	if (dest < src)
 	{
-		while (idx < count)
+		while (i < len)
 		{
-			*((char *)dest + idx) = *((char *)src + idx);
-			idx++;
+			*((char *)dest + i) = *((char *)src + i);
+			i++;
 		}
 	}
 	else
 	{
-		while (count > 0)
+		while (len > 0)
 		{
-			*((char *)dest + count - 1) = *((char *)src + count - 1);
-			count--;
+			*((char *)dest + len - 1) = *((char *)src + len - 1);
+			len--;
 		}
 	}
 	return (dest);

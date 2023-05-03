@@ -6,13 +6,15 @@
 /*   By: apriego- <apriego-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 16:53:48 by apriego-          #+#    #+#             */
-/*   Updated: 2023/05/03 13:20:14 by apriego-         ###   ########.fr       */
+/*   Updated: 2023/05/03 15:55:23 by apriego-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_bzero(void *s, int n)
+#include "libft.h"
+
+void	ft_bzero(void *s, size_t n)
 {
-	int		i;
+	size_t	i;
 	char	*str;
 
 	i = 0;
@@ -22,7 +24,6 @@ void	*ft_bzero(void *s, int n)
 		str[i] = 0;
 		i++;
 	}
-	return (str);
 }
 
 /*
