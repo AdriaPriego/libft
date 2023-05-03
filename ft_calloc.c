@@ -1,42 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apriego- <apriego-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/02 13:26:41 by apriego-          #+#    #+#             */
-/*   Updated: 2023/05/03 16:21:28 by apriego-         ###   ########.fr       */
+/*   Created: 2023/05/03 16:10:59 by apriego-          #+#    #+#             */
+/*   Updated: 2023/05/03 17:36:14 by apriego-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static int	ft_isupper(int c)
-{
-	if (c >= 'A' && c <= 'Z')
-		return (1);
-	return (0);
-}
+#include "libft.h"
+#include <stdlib.h>
 
-static int	ft_islower(int c)
+void	*ft_calloc(size_t count, size_t size)
 {
-	if (c >= 'a' && c <= 'z')
-		return (1);
-	return (0);
-}
+	void	*var;
 
-int	ft_isalpha(int c)
-{
-	if (ft_isupper(c) == 1 || ft_islower(c) == 1)
-		return (1);
-	return (0);
+	var = malloc(count * size);
+	if (!var)
+		return (0);
+	ft_bzero(var, (count * size));
+	return (var);
 }
-/*
-#include <ctype.h>
-#include <stdio.h>
-
-int main(void)
-{
-				printf("%d", ft_isalpha('1'));
-				printf("%d", isalpha('1'));
-}
-*/
