@@ -1,41 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apriego- <apriego-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/02 16:17:55 by apriego-          #+#    #+#             */
-/*   Updated: 2023/05/04 14:01:16 by apriego-         ###   ########.fr       */
+/*   Created: 2023/05/04 13:21:12 by apriego-          #+#    #+#             */
+/*   Updated: 2023/05/04 15:11:43 by apriego-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-void	*ft_memset(void *b, int c, size_t len)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t			i;
-	unsigned char	*str;
+	char	*str;
+	int		len;
 
-	i = 0;
-	str = (unsigned char *) b;
-	while (i < len)
-	{
-		str[i] = c;
-		i++;
-	}
+	len = ft_strlen(s1) + ft_strlen(s2);
+	str = malloc((len + 1) * sizeof(char));
+	if (!str)
+		return (0);
+	ft_strlcpy(str, s1, len + 1);
+	ft_strlcat(str, s2, len + 1);
 	return (str);
 }
-
-/*
-#include <string.h>
-#include <stdio.h>
-
-int main(void)
-{
-	char tab[100];
-	memset(tab, 0, 100);
-	ft_memset(tab, 'A', 0);
-	printf("%c\n", tab[0]);
-}
-*/

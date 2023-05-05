@@ -1,41 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apriego- <apriego-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/02 16:17:55 by apriego-          #+#    #+#             */
-/*   Updated: 2023/05/04 14:01:16 by apriego-         ###   ########.fr       */
+/*   Created: 2023/05/04 11:31:51 by apriego-          #+#    #+#             */
+/*   Updated: 2023/05/04 12:37:50 by apriego-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-void	*ft_memset(void *b, int c, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t			i;
-	unsigned char	*str;
+	char			*str;
+	unsigned int	i;
+	unsigned int	strl;
 
+	strl = ft_strlen(s);
+	if (strl < len)
+		str = malloc((strl + 1) * sizeof(char));
+	else
+		str = malloc((len + 1) * sizeof(char));
+	if (!str)
+		return (0);
 	i = 0;
-	str = (unsigned char *) b;
-	while (i < len)
-	{
-		str[i] = c;
-		i++;
+	if (strl > start)
+	{	
+		while (i < len && i < strl)
+		{
+			str[i] = s[start];
+			i++;
+			start++;
+		}
 	}
+	str[i] = '\0';
 	return (str);
 }
-
-/*
-#include <string.h>
-#include <stdio.h>
-
-int main(void)
-{
-	char tab[100];
-	memset(tab, 0, 100);
-	ft_memset(tab, 'A', 0);
-	printf("%c\n", tab[0]);
-}
-*/
