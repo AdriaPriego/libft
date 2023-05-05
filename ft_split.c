@@ -6,7 +6,7 @@
 /*   By: apriego- <apriego-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 14:25:37 by apriego-          #+#    #+#             */
-/*   Updated: 2023/05/05 16:54:53 by apriego-         ###   ########.fr       */
+/*   Updated: 2023/05/05 17:07:57 by apriego-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static int	ft_countsplits(char const *s, char c)
 	return (qtt);
 }
 
-static int		ft_countlenspit(char const *s2, char c, int i)
+static int	ft_countlenspit(char const *s2, char c, int i)
 {
 	int	len;
 
@@ -49,7 +49,7 @@ static int		ft_countlenspit(char const *s2, char c, int i)
 	return (len);
 }
 
-static char		**ft_free_matrix(char const **matrix, int j)
+static char	**ft_free_matrix(char const **matrix, int j)
 {
 	while (j > 0)
 	{
@@ -60,7 +60,7 @@ static char		**ft_free_matrix(char const **matrix, int j)
 	return (NULL);
 }
 
-static char		**ft_splitall(char const *s, char **res, char c, int l)
+static char	**ft_splitall(char const *s, char **res, char c, int l)
 {
 	int	i;
 	int	j;
@@ -85,7 +85,7 @@ static char		**ft_splitall(char const *s, char **res, char c, int l)
 	return (res);
 }
 
-char			**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**res;
 	int		l;

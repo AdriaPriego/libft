@@ -6,7 +6,7 @@
 #    By: apriego- <apriego-@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/02 13:15:19 by apriego-          #+#    #+#              #
-#    Updated: 2023/05/05 16:19:09 by apriego-         ###   ########.fr        #
+#    Updated: 2023/05/05 17:07:22 by apriego-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,8 @@ SRC =	ft_memset.c \
 		ft_substr.c \
 		ft_strjoin.c \
 		ft_strtrim.c \
-		ft_split.c
+		ft_split.c \
+		ft_itoa.c
 OBJ = 	$(SRC:%.c=%.o)
 INCLUDE = libft.h
 
