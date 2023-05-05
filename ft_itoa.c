@@ -18,10 +18,8 @@ static int	ft_calc10(int n, int *len)
 	int	qtt10;
 	int	ext;
 
-
 	ext = 0;
 	qtt10 = 1;
-	*len = 0;
 	while (qtt10 <= n && ext == 0)
 	{
 		if (qtt10 < 1000000000)
@@ -30,38 +28,33 @@ static int	ft_calc10(int n, int *len)
 			(*len)++;
 		}
 		else
+		{
 			ext = 1;
+			(*len)++;
+		}
 	}
 	if (ext == 0)
-	{
 		qtt10 = qtt10 / 10;
-	}
 	return (qtt10);
 }
 
-static int	ft_isnegative(int n)
+static int	ft_isnegative(int  *n, char *str, int *len)
 {
-	if (n < 0 && n != INT32_MIN)
+	*len = 0;
+	if (*n < 0 && *n != -2147483648)
 	{
-		n *= -1;
+		*n *= -1;
+		*len = 1;
 	}
-	return (n);
+	return(*len);
 }
 
-char	*ft_itoa(int n)
+static void	ft_fillstring(char *str, int qtt10, int neg, int n)
 {
-	char	*str;
-	int		len;
-	int		i;
-	int		qtt10;
+	int	i;
 
-	n = ft_isnegative(n);
-	qtt10 = ft_calc10(n, &len);
-	str = malloc(len * sizeof(char));
-	if (!str)
-		return (NULL);
-	i = 0;
-	while (i < len)
+	i = neg;
+	while (1 <= qtt10)
 	{
 		str[i] = (n / qtt10) + '0';
 		n = n % qtt10;
@@ -69,13 +62,41 @@ char	*ft_itoa(int n)
 		i++;
 	}
 	str[i] = '\0';
+}
+
+char	*ft_itoa(int n)
+{
+	char	*str;
+	int		len;
+	int		qtt10;
+	int		neg;
+
+	if (n == -2147483648)
+	{
+		str = malloc(12 * sizeof(char));
+		str = "-2147483648";
+	}
+	neg = ft_isnegative(&n, str, &len);
+	if (n >= 0)
+	{
+		qtt10 = ft_calc10(n, &len);
+		if (neg == 1)
+		{
+			str = malloc((len + 1) * sizeof(char));
+			str[0] = '-';
+		}
+		else
+			str = malloc(len * sizeof(char));
+		if (!str)
+			return (NULL);
+		ft_fillstring(str, qtt10, neg, n);
+	}
 	return (str);
 }
 
-/*
 #include <stdio.h>
 
 int main()
 {
-	printf("%s",ft_itoa(100));
-}*/
+	printf("%s",ft_itoa(202));
+}
