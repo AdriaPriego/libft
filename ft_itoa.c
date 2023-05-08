@@ -6,7 +6,7 @@
 /*   By: apriego- <apriego-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 16:58:27 by apriego-          #+#    #+#             */
-/*   Updated: 2023/05/05 17:26:03 by apriego-         ###   ########.fr       */
+/*   Updated: 2023/05/08 12:08:50 by apriego-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,14 @@ static int	ft_calc10(int n, int *len)
 			(*len)++;
 		}
 	}
-	if (ext == 0)
+	if (ext == 0 && n != 0)
 		qtt10 = qtt10 / 10;
+	else if (n == 0)
+		*len = 1;
 	return (qtt10);
 }
 
-static int	ft_isnegative(int  *n, char *str, int *len)
+static int	ft_isnegative(int *n, int *len)
 {
 	*len = 0;
 	if (*n < 0 && *n != -2147483648)
@@ -46,7 +48,7 @@ static int	ft_isnegative(int  *n, char *str, int *len)
 		*n *= -1;
 		*len = 1;
 	}
-	return(*len);
+	return (*len);
 }
 
 static void	ft_fillstring(char *str, int qtt10, int neg, int n)
@@ -54,6 +56,10 @@ static void	ft_fillstring(char *str, int qtt10, int neg, int n)
 	int	i;
 
 	i = neg;
+	if (neg == 1)
+	{
+		str[0] = '-';
+	}
 	while (1 <= qtt10)
 	{
 		str[i] = (n / qtt10) + '0';
@@ -74,29 +80,21 @@ char	*ft_itoa(int n)
 	if (n == -2147483648)
 	{
 		str = malloc(12 * sizeof(char));
-		str = "-2147483648";
+		if (!str)
+			return (NULL);
+		ft_strlcpy(str, "-2147483648", 12);
 	}
-	neg = ft_isnegative(&n, str, &len);
+	neg = ft_isnegative(&n, &len);
 	if (n >= 0)
 	{
 		qtt10 = ft_calc10(n, &len);
 		if (neg == 1)
-		{
 			str = malloc((len + 1) * sizeof(char));
-			str[0] = '-';
-		}
 		else
-			str = malloc(len * sizeof(char));
+			str = malloc((len + 1) * sizeof(char));
 		if (!str)
 			return (NULL);
 		ft_fillstring(str, qtt10, neg, n);
 	}
 	return (str);
-}
-
-#include <stdio.h>
-
-int main()
-{
-	printf("%s",ft_itoa(202));
 }

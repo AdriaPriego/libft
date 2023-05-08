@@ -6,27 +6,37 @@
 /*   By: apriego- <apriego-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 23:55:55 by apriego-          #+#    #+#             */
-/*   Updated: 2023/05/05 23:55:55 by apriego-         ###   ########.fr       */
+/*   Updated: 2023/05/08 16:17:36 by apriego-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *),void (*del)(void *))
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*def;
-	t_list	*aux;
+	t_list	*auxdef;
 
-	aux = lst;
-	if (!(def = malloc(sizeof(t_list))))
+	if (!lst)
 		return (0);
-	while (aux)
+	def = malloc(sizeof(t_list));
+	if (!def)
+		return (0);
+	auxdef = def;
+	while (lst)
 	{
-		def->content = f(aux->content);
-		if (!(def->next = malloc(sizeof(t_list))))
-			ft_lstclear(&aux, del);
-		aux = aux->next;
-		def = def->next;
+		auxdef->content = f(lst->content);
+		if (!auxdef)
+			ft_lstclear(&lst, del);
+		lst = lst->next;
+		if (lst)
+		{
+			auxdef->next = malloc(sizeof(t_list));
+			auxdef = auxdef->next;
+		}
+		else
+			auxdef->next = 0;
 	}
 	return (def);
 }

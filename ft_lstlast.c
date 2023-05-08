@@ -6,7 +6,7 @@
 /*   By: apriego- <apriego-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 23:19:49 by apriego-          #+#    #+#             */
-/*   Updated: 2023/05/05 23:19:49 by apriego-         ###   ########.fr       */
+/*   Updated: 2023/05/08 13:40:32 by apriego-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@ t_list	*ft_lstlast(t_list *lst)
 	t_list	*node;
 
 	if (!lst)
-		return (NULL);
-	if (node->next == NULL)
-		return (node);
+		return (0);
+	if (!(lst->next))
+		return (lst);
 	node = lst;
 	while (node)
 	{
-		if (node->next == NULL)
-			return(node);
+		if (!(node->next))
+			return (node);
 		node = node->next;
 	}
 	return (node);

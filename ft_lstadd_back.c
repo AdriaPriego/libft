@@ -6,7 +6,7 @@
 /*   By: apriego- <apriego-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 23:25:01 by apriego-          #+#    #+#             */
-/*   Updated: 2023/05/05 23:25:01 by apriego-         ###   ########.fr       */
+/*   Updated: 2023/05/08 13:31:08 by apriego-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	if ((*lst))
 	{
 		temp = *lst;
-		while (temp->next != NULL)
+		while (temp->next != 0)
 			temp = temp->next;
 		temp->next = new;
 	}

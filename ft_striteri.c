@@ -6,7 +6,7 @@
 /*   By: apriego- <apriego-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 22:03:38 by apriego-          #+#    #+#             */
-/*   Updated: 2023/05/05 22:03:38 by apriego-         ###   ########.fr       */
+/*   Updated: 2023/05/08 11:39:10 by apriego-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,4 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 			i++;
 		}
 	}
-
 }
