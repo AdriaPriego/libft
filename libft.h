@@ -33,6 +33,7 @@ int			ft_isascii(int c);
 void		*ft_calloc(size_t count, size_t size);
 int			ft_isdigit(int c);
 int			ft_isprint(int c);
+int			ft_ishex(int c);
 void		*ft_memset(void *b, int c, size_t len);
 int			ft_tolower(int c);
 int			ft_toupper(int c);
