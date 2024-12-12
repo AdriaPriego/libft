@@ -6,7 +6,7 @@
 /*   By: apriego- <apriego-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 22:08:54 by apriego-          #+#    #+#             */
-/*   Updated: 2023/05/03 15:51:22 by apriego-         ###   ########.fr       */
+/*   Updated: 2023/05/12 15:42:39 by apriego-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,3 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 		dst[i] = '\0';
 	return (len);
 }
-
-/*
-int main(void)
-{
-	char dest[20] = "Pa";
-	char src[20] = "Hola";
-	printf("%zu\n",ft_strlcpy(dest, "", 15));
-	printf("%s", dest);
-}
-*/

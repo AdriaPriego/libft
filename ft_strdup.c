@@ -6,7 +6,7 @@
 /*   By: apriego- <apriego-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 17:25:42 by apriego-          #+#    #+#             */
-/*   Updated: 2023/05/03 18:22:58 by apriego-         ###   ########.fr       */
+/*   Updated: 2023/07/11 18:11:34 by apriego-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,16 +31,3 @@ char	*ft_strdup(const char *s1)
 	var[i] = '\0';
 	return (var);
 }
-/*
-int main ()
-{
-	char *str;
-	char *tmp = "HAHAHA \0 tu me vois pas !";
-
-	str = ft_strdup(tmp);
-	if (strcmp(str, tmp))
-			printf("TEST_FAILED");
-	free(str);
-	printf("TEST_SUCCESS");
-}
-*/

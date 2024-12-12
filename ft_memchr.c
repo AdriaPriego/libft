@@ -6,7 +6,7 @@
 /*   By: apriego- <apriego-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 17:00:20 by apriego-          #+#    #+#             */
-/*   Updated: 2023/05/03 15:55:05 by apriego-         ###   ########.fr       */
+/*   Updated: 2023/07/11 18:10:58 by apriego-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,24 +27,3 @@ void	*ft_memchr(const void *str, int c, size_t n)
 	}
 	return (0);
 }
-/*
-#include <stdio.h>
-#include <string.h>
- 
-int main()
-{
-	char cadena[] = "Erase una vez...";
-	char *puntero; 
- 
-	puntero = (char *)memchr( cadena, 0, 5 );
-	printf( "%s\n", cadena); 
-	printf( "%s\n", puntero ); 
-
-	char cadena1[] = "Erase una vez...";
-	char *puntero1; 
-
-	puntero1 = (char *)ft_memchr( cadena1, 0, 5 );
-	printf( "%s\n", cadena1); 
-	printf( "%s\n", puntero1); 
-   return 0;
-}*/

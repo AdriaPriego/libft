@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apriego- <apriego-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: fbosch <fbosch@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/05 23:44:02 by apriego-          #+#    #+#             */
-/*   Updated: 2023/05/08 14:06:25 by apriego-         ###   ########.fr       */
+/*   Created: 2023/05/05 23:19:49 by apriego-          #+#    #+#             */
+/*   Updated: 2023/08/25 15:51:10 by fbosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-void	ft_lstclear(t_list **lst, void (*del)(void*))
+t_list	*ft_lstlast(t_list *lst)
 {
-	t_list	*nxt;
-	t_list	*aux;
+	t_list	*node;
 
-	aux = *lst;
-	while (aux)
-	{
-		nxt = aux->next;
-		del(aux->content);
-		free(aux);
-		aux = nxt;
-	}
-	*lst = 0;
+	if (!lst)
+		return (0);
+	node = lst;
+	while ((node->next))
+		node = node->next;
+	return (node);
 }

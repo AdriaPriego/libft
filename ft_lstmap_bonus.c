@@ -1,31 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apriego- <apriego-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/05 23:19:49 by apriego-          #+#    #+#             */
-/*   Updated: 2023/05/08 13:40:32 by apriego-         ###   ########.fr       */
+/*   Created: 2023/05/05 23:55:55 by apriego-          #+#    #+#             */
+/*   Updated: 2023/09/20 10:58:33 by apriego-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-t_list	*ft_lstlast(t_list *lst)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*node;
+	t_list	*def;
+	t_list	*auxdef;
 
 	if (!lst)
 		return (0);
-	if (!(lst->next))
-		return (lst);
-	node = lst;
-	while (node)
+	def = malloc(sizeof(t_list));
+	if (!def)
+		return (0);
+	auxdef = def;
+	while (lst)
 	{
-		if (!(node->next))
-			return (node);
-		node = node->next;
+		auxdef->content = f(lst->content);
+		lst = lst->next;
+		if (lst)
+		{
+			auxdef->next = malloc(sizeof(t_list));
+			if (!auxdef->next)
+				ft_lstclear(&def, del);
+			auxdef = auxdef->next;
+		}
+		else
+			auxdef->next = 0;
 	}
-	return (node);
+	return (def);
 }

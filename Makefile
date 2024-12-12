@@ -3,50 +3,97 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: apriego- <apriego-@student.42barcel>       +#+  +:+       +#+         #
+#    By: apriego- <apriego-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/02 13:15:19 by apriego-          #+#    #+#              #
-#    Updated: 2023/05/08 13:42:33 by apriego-         ###   ########.fr        #
+#    Updated: 2023/11/13 13:32:55 by apriego-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-LIB = ar rs
-RM = rm -f
+#==================COLORS==================#
 
-CC = gcc
-CCFLAGS = -Wall -Wextra -Werror
+GREEN	=	\033[38;5;154m
+RED		=	\033[38;5;197m
+PURPLE	=	\033[38;5;171m
+BLUE	=	\033[38;5;14m
+NC		=	\033[0m
+YELLOW	=	\033[38;5;190m
 
-NAME = libft.a
-SRC =	ft_memset.c ft_bzero.c ft_strlen.c ft_atoi.c ft_isdigit.c ft_isalpha.c\
-ft_isprint.c ft_isascii.c ft_isalnum.c ft_memchr.c ft_memcpy.c\
-ft_memcmp.c ft_memmove.c ft_strchr.c ft_strdup.c ft_strlcat.c ft_strlcpy.c\
-ft_strncmp.c ft_toupper.c ft_tolower.c ft_strnstr.c ft_strrchr.c ft_calloc.c\
-ft_putchar_fd.c ft_putstr_fd.c ft_putnbr_fd.c ft_putendl_fd.c ft_substr.c\
-ft_strjoin.c ft_strtrim.c ft_strmapi.c ft_itoa.c ft_split.c ft_striteri.c
-OBJ = $(SRC:.c=.o)
-INCLUDE = libft.h
+#=================COMMANDS=================#
 
-BONUSSRC = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c\
-ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c\
-ft_lstclear.c ft_lstiter.c ft_lstmap.c\
+LIB		=	ar rcs
+CC		=	gcc
+CCFLAGS	=	-Wall -Wextra -Werror
+INCFLAG	=	-I.
+RM		=	rm -fr
 
-BONUSOBJ = $(BONUSSRC:.c=.o)
+#==================FILES===================#
 
-all: $(NAME)
+NAME			=	libft.a
+INCLUDE 		=	libft.h
+PRINTF			=	ft_printf/
+PRINTFFD		=	ft_printf_fd/
+GETLINE			=	get_next_line/
+SRC				=	ft_memset.c ft_bzero.c ft_strlen.c ft_atoi.c ft_isdigit.c ft_isalpha.c\
+					ft_isprint.c ft_isascii.c ft_isalnum.c ft_memchr.c ft_memcpy.c\
+					ft_memcmp.c ft_memmove.c ft_strchr.c ft_strdup.c ft_strlcat.c ft_strlcpy.c\
+					ft_strncmp.c ft_toupper.c ft_tolower.c ft_strnstr.c ft_strrchr.c ft_calloc.c\
+					ft_putchar_fd.c ft_putstr_fd.c ft_putnbr_fd.c ft_putendl_fd.c ft_substr.c\
+					ft_strjoin.c ft_strtrim.c ft_strmapi.c ft_itoa.c ft_split.c ft_striteri.c\
+					ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c\
+					ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstdelone_bonus.c\
+					ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c\
+					ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c\
+					ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstdelone_bonus.c\
+					ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c ft_test_int.c\
+					ft_free_malloc_array.c ft_array_len.c ft_numlen.c ft_to_lower.c ft_atod.c\
+					ft_strcmp.c ft_test_double.c
 
-$(NAME): $(OBJ) $(INCLUDE)
-	$(LIB) $(NAME) $(OBJ)
+FILESPRINTF		=	ft_hex.c ft_printf.c ft_printfnbr.c
 
-bonus: $(OBJ) $(BONUSOBJ) $(INCLUDE)
-	$(LIB) $(NAME) $(BONUSOBJ) $(OBJ)
+SRCPRINTF		=	$(addprefix $(PRINTF),$(FILESPRINTF))
 
-%.o: %.c
-	$(CC) $(CCFLAGS) -c -o $@ $<
+FILESPRINTFFD	=	ft_hex_fd.c ft_printf_fd.c ft_printfnbr_fd.c
+
+SRCPRINTFFD		=	$(addprefix $(PRINTFFD),$(FILESPRINTFFD))
+
+FILESGETLINE 	=	get_next_line_utils.c get_next_line.c
+
+SRCGETLINE		=	$(addprefix $(GETLINE),$(FILESGETLINE))
+DIR_OBJ			=	temp/
+OBJ				=	$(addprefix $(DIR_OBJ),$(SRC:.c=.o))
+OBJPRINT		=	$(addprefix $(DIR_OBJ),$(SRCPRINTF:.c=.o))
+OBJPRINTFD		=	$(addprefix $(DIR_OBJ),$(SRCPRINTFFD:.c=.o))
+OBJGETLINE		=	$(addprefix $(DIR_OBJ),$(SRCGETLINE:.c=.o))
+
+#==================RULES===================#
+
+all: temp $(NAME)
+
+temp:
+	@mkdir -p $(DIR_OBJ)
+
+$(NAME): $(OBJ) $(OBJPRINT) $(OBJGETLINE) $(OBJPRINTFD)
+	@$(LIB) $(NAME) $(OBJ) $(OBJPRINT) $(OBJGETLINE) $(OBJPRINTFD)
+	@printf "${GREEN}Compiled libft\n${NC}"
+
+$(DIR_OBJ)%.o: %.c $(INCLUDE)
+	mkdir -p $(dir $@)
+	@$(CC) $(CCFLAGS) $(INCFLAG) -c -o $@ $<
+	@printf "${YELLOW}Compiling obj $@...${NC}\n"
 
 clean:
-	$(RM) $(OBJ) $(BONUSOBJ)
+	@$(RM) $(DIR_OBJ)
+	@echo "${RED}DELETING ALL LIBFT OBJ${NC}"
 
 fclean: clean
-	$(RM) $(NAME)
+	@$(RM) $(NAME)
+	@echo "${RED}DELETING ALL LIBFT${NC}"
+
+cleaname:
+	@$(RM) $(NAME)
+	@echo "${RED}DELETING ALL LIBFT${NC}"
 
 re: fclean all
+
+.PHONY: all clean fclean re 

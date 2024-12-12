@@ -6,7 +6,7 @@
 /*   By: apriego- <apriego-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 14:26:02 by apriego-          #+#    #+#             */
-/*   Updated: 2023/05/03 11:50:19 by apriego-         ###   ########.fr       */
+/*   Updated: 2023/07/11 18:12:16 by apriego-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,3 @@ int	ft_tolower(int c)
 		return (c + 32);
 	return (c);
 }
-
-/*
-#include <ctype.h>
-#include <stdio.h>
-
-int main(void)
-{
-	printf("%c-", ft_tolower('d'));
-	printf("%c", tolower('d'));
-}
-*/

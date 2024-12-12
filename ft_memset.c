@@ -6,7 +6,7 @@
 /*   By: apriego- <apriego-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 16:17:55 by apriego-          #+#    #+#             */
-/*   Updated: 2023/05/04 14:01:16 by apriego-         ###   ########.fr       */
+/*   Updated: 2023/07/11 18:09:58 by apriego-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,3 @@ void	*ft_memset(void *b, int c, size_t len)
 	}
 	return (str);
 }
-
-/*
-#include <string.h>
-#include <stdio.h>
-
-int main(void)
-{
-	char tab[100];
-	memset(tab, 0, 100);
-	ft_memset(tab, 'A', 0);
-	printf("%c\n", tab[0]);
-}
-*/

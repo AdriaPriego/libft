@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_to_lower.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apriego- <apriego-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/05 23:37:19 by apriego-          #+#    #+#             */
-/*   Updated: 2023/05/08 14:13:40 by apriego-         ###   ########.fr       */
+/*   Created: 2023/09/18 13:21:41 by apriego-          #+#    #+#             */
+/*   Updated: 2023/09/18 13:32:52 by apriego-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdlib.h>
-
-void	ft_lstdelone(t_list *lst, void (*del)(void*))
+char	*ft_to_lower(char *str)
 {
-	del(lst->content);
-	free(lst);
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] >= 'A' && str[i] <= 'Z' )
+			str[i] += 32;
+		i++;
+	}
+	return (str);
 }

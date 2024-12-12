@@ -6,12 +6,12 @@
 /*   By: apriego- <apriego-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 16:58:27 by apriego-          #+#    #+#             */
-/*   Updated: 2023/05/08 12:08:50 by apriego-         ###   ########.fr       */
+/*   Updated: 2023/05/12 15:41:58 by apriego-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include <stdlib.h>
+#include "libft.h"
 
 static int	ft_calc10(int n, int *len)
 {

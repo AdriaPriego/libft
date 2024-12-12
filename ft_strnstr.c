@@ -6,7 +6,7 @@
 /*   By: apriego- <apriego-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 22:37:15 by apriego-          #+#    #+#             */
-/*   Updated: 2023/05/05 12:10:07 by apriego-         ###   ########.fr       */
+/*   Updated: 2023/07/11 18:12:03 by apriego-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,3 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	}
 	return (0);
 }
-
-/*
-#include <string.h>
-
-int main(void)
-{
-	char haystack[30] = "aaabcabcd";
-	char needle[10] = "aabc";
-	char * empty = (char*)"";
-	char s[] = "tripouille";
-	printf("%s", ft_strnstr(empty, "coucou", -2));
-	printf("%s", strnstr(empty, "coucou", -1));
-}*/
