@@ -42,7 +42,7 @@ size_t		ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t		ft_strlcat(char *dest, const char *src, size_t size);
 char		*ft_strchr(const char *s, int c);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
-int			ft_strcmp_ci(const unsigned char *s1, const unsigned char *s2);
+int			ft_strcmp_ci(const char *s1, const char *s2);
 char		*ft_strnstr(const char *haystack, const char *needle, size_t len);
 void		ft_bzero(void *s, size_t n);
 void		*ft_memchr(const void *str, int c, size_t n);
